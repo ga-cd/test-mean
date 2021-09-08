@@ -1,0 +1,27 @@
+<mat-grid-list cols="3" >
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card style="text-align: center; margin: 15px">
+      <h3>Test App</h3>
+      <form #myLoginForm="ngForm" (ngSubmit)="onSubmitLoginForm()">
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Email</mat-label>
+          <input id="email" matInput [(ngModel)]="loginForm.email" type="text" name="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" style="width: 100%">
+          <mat-label>Enter your password</mat-label>
+          <input matInput id="password" [(ngModel)]="loginForm.password" [type]="hide ? 'password' : 'text'" name="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-stroked-button color="primary" type="submit" [disabled]="!myLoginForm.valid" style="width: 100%">Login</button>
+      </form>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
+
+
