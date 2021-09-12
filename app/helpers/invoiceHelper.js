@@ -16,6 +16,8 @@ const validateInvoiceData = (rowData, jobId, userId) => {
         || rowData.id === ''
     ) {
         result.isValidRow = 0;
+    } else {
+        result.isValidRow = 1;
     }
     const difference = dueOn.diff(dayjs(), 'days');
     const multiplier = {
